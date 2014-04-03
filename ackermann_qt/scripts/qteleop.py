@@ -124,6 +124,10 @@ class MainWindow(QtGui.QMainWindow):
         stop_car.setShortcut(QtCore.Qt.Key_End)
         self.connect(stop_car, QtCore.SIGNAL('triggered()'), self.stop_car)
 
+        self.timer = QtCore.QTimer()
+        self.timer.timeout.connect(self.timer_cb)
+        self.timer.start(1000)
+
 
         menubar = self.menuBar()
         mfile = menubar.addMenu('&File')
@@ -232,6 +236,10 @@ class MainWindow(QtGui.QMainWindow):
     def stop_car(self):
         "stop car immediately"
         self.adjustCarCmd(-self.drive.speed, 0.0)
+
+    def timer_cb(self):
+        rospy.logdebug('Timer called; resending current commad')
+        self.adjustCarCmd(0.0, 0.0) # republish the same command
 
     def reconfigure(self, config, level):
         "Dynamic reconfigure server callback."
