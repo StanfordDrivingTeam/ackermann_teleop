@@ -18,7 +18,6 @@ from PyQt4 import QtGui
 from PyQt4 import QtCore
 
 import roslib;
-roslib.load_manifest(PKG_NAME)
 import rospy
 
 from ackermann_msgs.msg import AckermannDrive

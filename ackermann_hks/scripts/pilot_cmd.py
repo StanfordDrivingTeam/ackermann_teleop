@@ -10,8 +10,6 @@
 PKG_NAME = 'ackermann_hks'
 
 # ROS node setup
-import roslib;
-roslib.load_manifest(PKG_NAME)
 import rospy
 
 # ROS messages

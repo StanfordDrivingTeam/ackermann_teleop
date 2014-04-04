@@ -18,8 +18,6 @@ import Queue
 import pilot_cmd                # ART pilot interface
 
 # ROS node setup
-import roslib;
-roslib.load_manifest(PKG_NAME)
 import rospy
 
 # ROS messages
