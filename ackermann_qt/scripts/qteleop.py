@@ -122,9 +122,14 @@ class MainWindow(QtGui.QMainWindow):
         stop_car.setShortcut(QtCore.Qt.Key_End)
         self.connect(stop_car, QtCore.SIGNAL('triggered()'), self.stop_car)
 
-        self.timer = QtCore.QTimer()
-        self.timer.timeout.connect(self.timer_cb)
-        self.timer.start(1000)
+        if rospy.has_param("~repeat_rate"):
+            rate = float(rospy.get_param("~repeat_rate"))
+            rospy.loginfo("Repeat rate set to %.2f Hz"%rate)
+            self.timer = QtCore.QTimer()
+            self.timer.timeout.connect(self.timer_cb)
+            self.timer.start(1000.0 / rate)
+        else:
+            rospy.loginfo("Repeat rate unset")
 
 
         menubar = self.menuBar()
