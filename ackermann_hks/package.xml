@@ -1,19 +1,26 @@
 <package>
-  <description brief="Ackermann steering HKS tele-operation">
-
+  <name>ackermann_hks</name>
+  <description>
      HKS game controller tele-operation interface for driving a
      vehicle with Ackermann steering under human control.
-
   </description>
-  <author>Jack O'Quin, Joshua Bennett</author>
+  <maintainer email="hendrix@stanford.edu">Austin Hendrix</maintainer>
+  <author>Jack O'Quin</author>
+  <author>Joshua Bennett</author>
   <license>BSD</license>
-  <review status="experimental" notes=""/>
   <url>http://www.ros.org/wiki/ackermann_hks</url>
+  <version>0.2.0</version>
 
-  <depend package="ackermann_msgs"/>
-  <depend package="sensor_msgs"/>
-  <depend package="dynamic_reconfigure" />
-  <depend package="joy"/>
-  <depend package="rospy"/>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>ackermann_msgs</build_depend>
+  <build_depend>dynamic_reconfigure</build_depend>
+  <build_depend>joy</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <run_depend>ackermann_msgs</run_depend>
+  <run_depend>dynamic_reconfigure</run_depend>
+  <run_depend>joy</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>sensor_msgs</run_depend>
 
 </package>

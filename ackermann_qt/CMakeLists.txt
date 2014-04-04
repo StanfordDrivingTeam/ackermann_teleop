@@ -1,9 +1,9 @@
-cmake_minimum_required(VERSION 2.4.6)
-include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
+cmake_minimum_required(VERSION 2.8.3)
+project(ackermann_qt)
 
-rosbuild_init()
+find_package(catkin REQUIRED COMPONENTS dynamic_reconfigure)
 
-# auto-generated dynamic reconfiguration GUI
-rosbuild_find_ros_package(dynamic_reconfigure)
-include(${dynamic_reconfigure_PACKAGE_PATH}/cmake/cfgbuild.cmake)
-gencfg()
+generate_dynamic_reconfigure_options(cfg/QTeleop.cfg)
+
+catkin_package(CATKIN_DEPENDS dynamic_reconfigure)
+

@@ -1,20 +1,23 @@
 <package>
-  <description brief="Ackermann steering Qt tele-operation">
-
+  <name>ackermann_qt</name>
+  <description>
      Qt tele-operation interface for driving a vehicle with Ackermann
      steering under human control.
-
   </description>
+  <maintainer email="hendrix@stanford.edu">Austin Hendrix</maintainer>
+  <author email="hendrix@stanford.edu">Austin Hendrix</author>
   <author>Jack O'Quin</author>
   <license>BSD</license>
-  <review status="experimental" notes=""/>
   <url>http://www.ros.org/wiki/ackermann_qt</url>
+  <version>0.2.0</version>
 
-  <depend package="ackermann_msgs"/>
-  <depend package="dynamic_reconfigure" />
-  <depend package="rospy"/>
+  <buildtool_depend>catkin</buildtool_depend>
 
-  <!-- declare run-time dependency on Qt4 python package -->
-  <rosdep name="python-qt-bindings"/>
+  <build_depend>ackermann_msgs</build_depend>
+  <build_depend>dynamic_reconfigure</build_depend>
+  <run_depend>ackermann_msgs</run_depend>
+  <run_depend>dynamic_reconfigure</run_depend>
+  <run_depend>python_qt_binding</run_depend>
+  <run_depend>rospy</run_depend>
 
 </package>
