@@ -12,7 +12,6 @@ PKG_NAME = 'ackermann_qt'
 import sys
 import os
 import math
-import threading
 
 from PyQt4 import QtGui
 from PyQt4 import QtCore
@@ -248,11 +247,10 @@ class MainWindow(QtGui.QMainWindow):
         return config
 
 
-class QtThread(threading.Thread):
+class QtThread(object):
 
     def __init__(self, topic):
         self.topic = topic
-        threading.Thread.__init__(self)
 
     def run(self):
         # run the program
@@ -274,8 +272,8 @@ if __name__ == '__main__':
     #rospy.loginfo('starting tele-operation')
 
     try:
-        QtThread(g_topic).start()
-        rospy.spin()
-    except rospy.ROSInterruptException: pass
+        QtThread(g_topic).run()
+    except rospy.ROSInterruptException:
+        pass
 
     #rospy.loginfo('tele-operation completed')
